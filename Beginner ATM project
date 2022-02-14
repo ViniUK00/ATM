@@ -1,0 +1,35 @@
+#This is a beginner python ATM project
+
+def withdraw(x,y):            #Withdraw function an int
+    currentbalance = x - y
+    return currentbalance
+
+def deposit(x,y):             #Deposit function return an int
+    currentbalance = x + y
+    return currentbalance
+def main():       #main function
+
+    currentbalance=1000
+    print("***********    Welcome    ************")
+
+    option=int(input("Plese \nEnter 1 to Withdraw \nEnter 2 to Deposit \nEnter 3 to view current balance \nEnter 4 to Exit: "))   #Promts the user to choose a transaction
+
+    if option==1:          #If option 1  withdraw
+        withd=int(input("How much would you like to withdraw: "))  #Withdrawin ammount
+        if withd<=currentbalance: #If withdrawin ammount is less or equal to our current balance
+            print("Transaction Approved")
+            print("You new current balance is: ",withdraw(currentbalance,withd),"$") #Prints and calls withdraw function
+        else:
+            AssertionError     #If the withdraw ammount is more than the current balance the transaction is declined (Sorry no overdraft!)
+            print("Transaction Declined!")
+            print("insufficient funds")
+    elif option==2:      #If option 2  deposit
+        depos=int(input("Please enter the ammount you would like to deposit: ")) #Enter the ammount you will deposit
+        print("You new currnet balace is: ", deposit(currentbalance,depos),"$")   #Print and calls deposit function
+
+    elif option==3:#If option 3 view current balance
+        print("Current Balance: ",currentbalance, "$")
+    elif option==4:  #If option is 4 exit the ATM
+        print("Thank you for using our ATM \nHave a lovely day!")
+
+main() #Calls the main function
